@@ -1,0 +1,19 @@
+.container {
+  width: 800px;
+  height: 700px;
+}
+.head {
+  height: 10%;
+}
+.pictures {
+  height: 50%;
+}
+.btn-generate {
+  height: 10%;
+}
+.coursel {
+  height: 20%;
+}
+.footer {
+  height: 10%;
+}

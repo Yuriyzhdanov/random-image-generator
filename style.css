@@ -1,0 +1,55 @@
+@import url("https://fonts.googleapis.com/css2?family=Abel&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Abel", sans-serif;
+}
+
+div {
+  border: 1px solid black;
+  padding: 2px;
+}
+.row {
+  font-size: 0;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.row > div {
+  display: inline-block;
+  font-size: 14px;
+  height: 100%;
+  vertical-align: top;
+  overflow: hidden;
+  white-space: normal;
+}
+
+.main {
+  width: 90%;
+  height: 100%;
+  margin: 0 auto;
+  background-color: #ccc;
+}
+
+.wrap-head {
+  text-align: center;
+}
+.wrap-picture {
+  text-align: center;
+}
+.wrap-picture > img {
+  width: 350px;
+}
+
+.wrap-coursel>img{
+  padding: 0 5px;
+}
+
+img {
+  width: 150px;
+}
+.wrap-btn-generate {
+  text-align: center;
+}
