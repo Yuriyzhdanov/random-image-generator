@@ -43,7 +43,10 @@ div {
   width: 350px;
 }
 
-.wrap-coursel>img{
+.wrap-coursel {
+  overflow-x: scroll;
+}
+.wrap-coursel > img {
   padding: 0 5px;
 }
 
