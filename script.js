@@ -1,15 +1,12 @@
-const accessKey = "e_b8bORlFuCeYhZrun2tsufVV9FcybWl7Kw6yhTBFLM"; // Замените на свой ключ доступа Unsplash API
 const apiUrl = "https://api.unsplash.com/photos/random";
+const accessKey = "e_b8bORlFuCeYhZrun2tsufVV9FcybWl7Kw6yhTBFLM";
 
-// Константы для доступа к элементам DOM
-const imageContainer = document.getElementById("imageContainer");
+const imageContainer = document.getElementById("wrap-picture");
 const courselWrap = document.querySelector(".wrap-coursel");
 const headWrap = document.querySelector(".wrap-head");
 
-// Массив для хранения полученных изображений
 const pictures = [];
 
-// Функция для асинхронного получения и сохранения изображения
 async function fetchAndSaveImage() {
   try {
     const response = await axios.get(apiUrl, {
@@ -23,12 +20,12 @@ async function fetchAndSaveImage() {
 
     return imageData;
   } catch (error) {
-    console.error("Ошибка при получении изображения:", error);
+    console.error("Error in receiving the image:", error);
     throw error;
   }
 }
 
-// Функция для отображения изображения с классом "wrap-picture"
+
 function displayImage() {
   const lastImageIndex = pictures.length - 1;
   const image = pictures[lastImageIndex];
@@ -38,7 +35,6 @@ function displayImage() {
   }
 }
 
-// Функция для сохранения текущего изображения с классом "wrap-coursel"
 function saveAndDisplayCurrentImage() {
   const currentImageIndex = pictures.length - 1;
   const currentImage = pictures[currentImageIndex];
@@ -51,24 +47,26 @@ function saveAndDisplayCurrentImage() {
   }
 
   if (headWrap) {
-    headWrap.innerHTML = `<h4>${currentImage.alt_description} by ${currentImage.user.name}</h4>`;
+    const author = currentImage.user.name;
+    const attribution = `by ${author} on Unsplash`;
+    headWrap.innerHTML = `<h4>${attribution}</h4>`;
   }
 }
 
-// Обработчик события для кнопки "Generate"
+
 const generateBtn = document.querySelector(".generate-btn");
 if (generateBtn) {
   generateBtn.addEventListener("click", () => {
     fetchAndSaveImage()
       .then(() => {
-        // Вызываем функцию displayImage для отображения изображения
+
         displayImage();
 
-        // Вызываем функцию saveAndDisplayCurrentImage для сохранения и отображения данных изображения
         saveAndDisplayCurrentImage();
+
       })
       .catch((error) => {
-        console.error("Ошибка:", error);
+        console.error("Error:", error);
       });
   });
 }

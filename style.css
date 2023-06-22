@@ -40,7 +40,7 @@ div {
   text-align: center;
 }
 .wrap-picture > img {
-  width: 350px;
+  width: 220px;
 }
 
 .wrap-coursel {
@@ -51,8 +51,9 @@ div {
 }
 
 img {
-  width: 150px;
+  width: 100px;
 }
+
 .wrap-btn-generate {
   text-align: center;
 }
