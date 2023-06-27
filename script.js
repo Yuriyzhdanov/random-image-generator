@@ -2,7 +2,7 @@ const apiUrl = "https://api.unsplash.com/photos/random";
 const accessKey = "e_b8bORlFuCeYhZrun2tsufVV9FcybWl7Kw6yhTBFLM";
 
 const imageContainer = document.getElementById("wrap-picture");
-const courselWrap = document.querySelector(".wrap-coursel");
+const courselWrap = document.querySelector(".slick-carousel");
 const headWrap = document.querySelector(".wrap-head");
 
 const pictures = [];
@@ -25,7 +25,6 @@ async function fetchAndSaveImage() {
   }
 }
 
-
 function displayImage() {
   const lastImageIndex = pictures.length - 1;
   const image = pictures[lastImageIndex];
@@ -42,8 +41,9 @@ function saveAndDisplayCurrentImage() {
   if (courselWrap) {
     const newImageElement = document.createElement("img");
     newImageElement.src = currentImage.urls.regular;
-    newImageElement.className = "wrap-coursel";
+    newImageElement.className = "slick-carousel";
     courselWrap.appendChild(newImageElement);
+
   }
 
   if (headWrap) {
@@ -53,20 +53,17 @@ function saveAndDisplayCurrentImage() {
   }
 }
 
-
 const generateBtn = document.querySelector(".generate-btn");
 if (generateBtn) {
   generateBtn.addEventListener("click", () => {
     fetchAndSaveImage()
       .then(() => {
-
         displayImage();
-
         saveAndDisplayCurrentImage();
-
       })
       .catch((error) => {
         console.error("Error:", error);
       });
   });
 }
+
